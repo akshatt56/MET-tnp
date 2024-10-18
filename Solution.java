@@ -1,25 +1,21 @@
 public class Solution
 {
-    public int missingNumber(int[]nums)
+    public int findLargest(int[] arr)
     {
-        int n = nums.length;
-        int expectedSum = n * (n + 1) / 2;
-        int actualSum = 0;
-
-        // Calculate the sum of elements in the array
-        for (int num : nums)
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++)
         {
-            actualSum += num;
+            if (arr[i] > max)
+            {
+                max = arr[i];
+            }
         }
-
-        // The missing number = expected sum - actual sum
-        return expectedSum - actualSum;
+        return max;
     }
-
     public static void main(String[] args)
     {
         Solution solution = new Solution();
-        int[] nums = {3, 0, 1};
-        System.out.println("The missing number is: " + solution.missingNumber(nums));
+        int[] arr = {1, 8, 7, 56, 90};
+        System.out.println(solution.findLargest(arr));
     }
 }
